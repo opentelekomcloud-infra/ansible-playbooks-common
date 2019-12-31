@@ -1,0 +1,11 @@
+---
+# Playbook to install Bastion server
+
+# This step is required to be executed first, since it is mostly the case
+# that TCP port forwarding is disabled on the Bastion instance. The role
+# will enable that and we will be able to access all other instances
+- name: Apply common role to all Bastion instance
+  hosts: bastion
+  become: true
+  roles:
+    - {role: opentelekomcloud.server_common, enable_ssh_tcp_forwarding: True}
