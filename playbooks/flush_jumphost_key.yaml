@@ -15,3 +15,7 @@
         mode: 0400
       loop: "{{ groups['bastion'] }}"
       when: hostvars[item].ssh_key is defined
+
+- name: Dummy connect
+  hosts: bastion
+  tasks:
