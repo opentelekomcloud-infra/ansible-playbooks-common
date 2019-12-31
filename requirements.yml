@@ -4,4 +4,6 @@
     src: https://github.com/opentelekomcloud-infra/ansible-role-haproxy.git
   - name: opentelekomcloud_infra.server_sync
     src: https://github.com/opentelekomcloud-infra/ansible-role-server-sync.git
+  - name: opentelekomcloud_infra.telegraf
+    src: https://github.com/opentelekomcloud-infra/ansible-role-telegraf.git
 
