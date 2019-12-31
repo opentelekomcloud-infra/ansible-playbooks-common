@@ -1,0 +1,8 @@
+.ansible_*
+inv.log
+inventory/production
+*.retry
+playbooks/credentials/*
+playbooks/*_ssh_key
+**/*.swp
+**/*.swo

@@ -1,0 +1,40 @@
+---
+# Provision (create) Host for nginx proxy
+#
+# Vars:
+# haproxy_host_image (default: Standard_Fedora_30_latest)
+# haproxy_host_flavor (default: s2.large.2)
+# haproxy_host_server_name
+# haproxy_host_availability_zone (default eu-de-03)
+# haproxy_host_root_volume_size (default 12)
+# haproxy_host_security_groups
+# haproxy_host_network
+# haproxy_host_key_name
+# haproxy_hosts:
+#  - name: "{{ ('web1.' + domain_name) }}"
+#    az: "eu-de-01"
+#  - name: "{{ ('web2.' + domain_name) }}"
+#    az: "eu-de-03"
+
+
+- name: Provision haproxy
+  hosts: os_infra
+  tasks:
+    - name: Create server
+      include_role:
+        name: opentelekomcloud_infra.haproxy
+        tasks_from: provision_openstack.yaml
+      when: haproxy_host_server_fqdn is defined
+
+    - name: Create servers
+      include_role:
+        name: opentelekomcloud_infra.haproxy
+        tasks_from: provision_openstack.yaml
+      vars:
+        haproxy_host_server_name: "{{ item.name }}"
+        haproxy_host_server_fqdn: "{{ item.name }}"
+        haproxy_host_availability_zone: "{{ item.az }}"
+      loop: "{{ haproxy_hosts }}"
+      when:
+        # - haproxy_host_server_fqdn is not defined
+        - haproxy_hosts is defined
