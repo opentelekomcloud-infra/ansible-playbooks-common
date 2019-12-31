@@ -2,3 +2,6 @@
   - name: opentelekomcloud.server_common
   - name: opentelekomcloud_infra.haproxy
     src: https://github.com/opentelekomcloud-infra/ansible-role-haproxy.git
+  - name: opentelekomcloud_infra.server_sync
+    src: https://github.com/opentelekomcloud-infra/ansible-role-server-sync.git
+

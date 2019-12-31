@@ -1,0 +1,8 @@
+---
+# Playbook to apply server common role
+- import_playbook: flush_jumphost_key.yaml
+
+- name: Apply required roles
+  hosts: all
+  roles:
+    - opentelekomcloud.server_common
