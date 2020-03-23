@@ -1,0 +1,12 @@
+---
+# Bootstrap a new Zookeeper cluster
+- import_playbook: flush_jumphost_key.yaml
+
+- name: restart zookeeper
+  hosts: zookeeper
+  tasks:
+    - name: restart zookeeper
+      become: true
+      systemd:
+        name: "zookeeper"
+        state: "restarted"
