@@ -1,4 +1,5 @@
 ---
+roles:
   - name: opentelekomcloud.server_common
   - name: opentelekomcloud_infra.haproxy
     src: https://github.com/opentelekomcloud-infra/ansible-role-haproxy.git
@@ -6,4 +7,5 @@
     src: https://github.com/opentelekomcloud-infra/ansible-role-server-sync.git
   - name: opentelekomcloud_infra.telegraf
     src: https://github.com/opentelekomcloud-infra/ansible-role-telegraf.git
-
+  - name: opentelekomcloud_infra.zookeeper
+    src: https://github.com/opentelekomcloud-infra/ansible-role-zookeeper.git
